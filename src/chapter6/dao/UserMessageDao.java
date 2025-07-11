@@ -37,7 +37,11 @@ public class UserMessageDao {
             }
 
             if (!StringUtils.isBlank(searchWord)) {
-    			sql.append(" AND messages.text = ? ");
+    			if(likeSearch.equals("same")) {
+    				sql.append(" AND messages.text = ? ");
+    			}else {
+    				sql.append(" AND messages.text LIKE ? ");
+    			}
     		}
 
             sql.append("ORDER BY created_date DESC limit " + num);
@@ -50,21 +54,21 @@ public class UserMessageDao {
             	ps.setInt(3, userId);
 
             	if (!StringUtils.isBlank(searchWord)) {
-            		if (likeSearch == "startFrom") {
-            			ps.setString(4, "like " + searchWord + "%");
-            		}else if(likeSearch == "contain"){
-            			ps.setString(4, "like %" + searchWord + "%");
-            		}else{
+            		if (likeSearch.equals("startFrom")) {
+            			ps.setString(4, searchWord + "%");
+            		}else if(likeSearch.equals("contain")){
+            			ps.setString(4, "%" + searchWord + "%");
+            		}else if(likeSearch.equals("same")){
 						ps.setString(4, searchWord);
 					}
     			}
             }else {
     			if (!StringUtils.isBlank(searchWord)) {
-    				if (likeSearch == "startFrom") {
-            			ps.setString(3, "like " + searchWord + "%");
-            		}else if(likeSearch == "contain"){
-            			ps.setString(3, "like %" + searchWord + "%");
-            		}else{
+    				if (likeSearch.equals("startFrom")) {
+            			ps.setString(3, searchWord + "%");
+            		}else if(likeSearch.equals("contain")){
+            			ps.setString(3, "%" + searchWord + "%");
+            		}else if(likeSearch.equals("same")){
 						ps.setString(3, searchWord);
 					}
     			}

@@ -48,9 +48,9 @@
 				<input type = "text" name = "word" value = "${searchWord}"/>
 				<input type="radio" name="radiobutton" value="startFrom" checked="checked">
 				から始まる
-				<input type = "radio" name = "radiobutton" value = "contain" checked = "checked">
+				<input type = "radio" name = "radiobutton" value = "contain">
 				を含む
-				<input type="radio" name="radiobutton" value="same" checked="checked">
+				<input type="radio" name="radiobutton" value= "same">
 				完全⼀致
 				<input type = "submit" value = "検索">
 			</form>
