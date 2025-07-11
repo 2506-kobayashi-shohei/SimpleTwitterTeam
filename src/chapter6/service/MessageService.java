@@ -35,7 +35,7 @@ public class MessageService {
         }
     }
 
-    public List<UserMessage> select(String userId, String start, String end) {
+    public List<UserMessage> select(String userId, String start, String end, String searchWord, String likeSearch) {
         final int LIMIT_NUM = 1000;
 
         Connection connection = null;
@@ -61,7 +61,7 @@ public class MessageService {
             	end = dateTimeFormat.format(cl.getTime());
             }
 
-            List<UserMessage> messages = new UserMessageDao().select(connection, id, start, end, LIMIT_NUM);
+            List<UserMessage> messages = new UserMessageDao().select(connection, id, start, end, searchWord, likeSearch, LIMIT_NUM);
             return messages;
         } catch (RuntimeException e) {
             rollback(connection);

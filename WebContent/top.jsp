@@ -42,6 +42,16 @@
 		    <c:remove var="errorMessages" scope="session" />
 		</c:if>
 
+		<div class = "search">
+			<form action="./" action = "get">
+				つぶやき：
+				<input type = "text" name = "word" value = "${searchWord}"/>
+				<input type = "radio" name = "radiobutton" value = "contain" cheked = "checked">
+				を含む
+				<input type = "submit" value = "検索">
+			</form>
+		</div>
+
 		<form action="./" method="get">
 			日付：
 			<input type="date" id="start" name="start" value="${start}">
