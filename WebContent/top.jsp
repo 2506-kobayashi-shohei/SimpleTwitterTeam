@@ -50,6 +50,8 @@
 				から始まる
 				<input type = "radio" name = "radiobutton" value = "contain" checked = "checked">
 				を含む
+				<input type="radio" name="radiobutton" value="same" checked="checked">
+				完全⼀致
 				<input type = "submit" value = "検索">
 			</form>
 		</div>
@@ -61,15 +63,6 @@
 			<input type="date" id="end" name="end" value="${end}">
 			<input type="submit" value="絞り込み">
 		</form>
-		<div class = "search">
-			<form action = "./" action = "get">
-				つぶやき：
-				<input type = "text" name ="word" value = "${searchWord}"/>
-				<input type="radio" name="radiobutton" value="same" checked="checked">
-				完全⼀致
-				<input type= "submit" value = "検索">
-			</form>
-		</div>
 		<br />
 		<div class="form-area">
 		    <c:if test="${ isShowMessageForm }">
