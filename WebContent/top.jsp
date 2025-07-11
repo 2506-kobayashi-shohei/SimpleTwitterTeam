@@ -61,6 +61,17 @@
 		    </c:if>
 		</div>
 
+		<div class = "search">
+			<form action = "./" action = "get">
+				つぶやき：
+				<input type = "text" name ="word" value = "${searchWord}"/>
+				<input type="radio" name="radiobutton" value="startFrom" checked="checked">
+				から始まる
+				<input type= "submit" value = "検索">
+			</form>
+		</div>
+
+
         <div class="messages">
 		 	<c:forEach items="${messages}" var="message">
 			 	<div class="message">
